@@ -15,6 +15,8 @@ function App() {
   const CoinGeckoClient = new CoinGecko();
 
   const [cryptoPrices, setCryptoPrices] = useState<cryptoPricesInterface>();
+  const [timesClicked, setTimesClicked] = useState<number>(0);
+  const [gameBoard, setGameBoard] = useState<number[][]>([]);
 
   const getCryptoPrices = async () => {
 
@@ -33,7 +35,18 @@ function App() {
     }
   });
 
+  //0 in the array is empty, 1 is populated
+  const generateGame = (boardSize: number) => {
+    let board = Array.from(Array(boardSize), _ => Array(boardSize).fill(0));
+    setGameBoard(board);
+  }
 
+  const flipTile = (x: number, y: number) => {
+    console.log(`x: ${x} y: ${y}`)
+    let board = [...gameBoard];
+    board[x][y] = gameBoard[x][y] === 0 ? 1 : 0;
+    setGameBoard(gameBoard => board);
+  }
   return (
     <div className="App">
       {/* <div>
@@ -63,7 +76,26 @@ function App() {
         </>
       }
 
+      <p onClick={() => setTimesClicked(timesClicked + 1)}>Ive been clicked {timesClicked} times</p>
 
+      <div className='oscillators'>
+        <p>Game of life oscillators</p>
+        <input type='button' value='Generate Game' onClick={() => generateGame(9)} />
+
+        {
+          gameBoard.map((column: any, index: any) => {
+            return (
+              <div className='row' key={column + index}>
+                {
+                  column.map((i: any, j: any) => 
+                    <div key={index+j} className={`cube ${gameBoard[index][j] === 0 ? 'white' : 'black'}`} onClick={() => flipTile(index, j)}/>
+                  ) 
+                }
+              </div>
+            ) 
+          })
+        }
+      </div>
 
     </div>
   );

@@ -9,3 +9,19 @@
   background-color: black;
   padding: 1%;
 }
+
+.black{
+  background-color: black;
+}
+
+.white{
+  background-color: beige;
+}
+
+.cube{
+  outline: black;
+  width: 25px;
+  height: 25px;
+}
+
+.row{display: flex;}
