@@ -19,6 +19,9 @@ function App() {
   const [started, setStarted] = useState(false);
   const [pageSelected, setPageSelected] = useState<string>('home');
 
+  const tokenName = 'Example Token'
+
+
   useEffect(() => {
     let interval: any = null;
     if (started) {
@@ -166,7 +169,10 @@ function App() {
           </>
         }
         {pageSelected === 'page2' &&
-          <p>Welcome to page2</p>
+          <>
+            <p>Welcome to page2</p>
+            <p>{tokenName} page</p>
+          </>
         }
       </div>
 
