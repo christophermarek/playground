@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import './Background.css';
+import Gossip from './Gossip';
+
+
 const CoinGecko = require('coingecko-api');
 
 interface cryptoPricesInterface {
@@ -111,6 +114,7 @@ function App() {
     board[x][y] = gameBoard[x][y] === 0 ? 1 : 0;
     setGameBoard(gameBoard => board);
   }
+
   return (
     <div className="App">
       {/* <div>
@@ -125,7 +129,7 @@ function App() {
       <div className='nav'>
         <input type='button' value='home' onClick={() => setPageSelected('home')} />
         <input type='button' value='page2' onClick={() => setPageSelected('page2')} />
-
+        <input type='button' value='Gossip' onClick={() => setPageSelected('gossip')} />
       </div>
       <div className='Body'>
 
@@ -172,7 +176,22 @@ function App() {
           <>
             <p>Welcome to page2</p>
             <p>{tokenName} page</p>
+            {/* https://github.com/matteobruni/tsparticles/blob/main/components/react/README.md 
+            should use this for the background of the page
+            */}
+            
+            <p>Roadmap</p>
+            <ul>
+              <li>Team</li>
+              <li>Whitepaper</li>
+              <li></li>
+              <li>Team</li>
+            </ul>
+
           </>
+        }
+        {pageSelected === 'gossip' &&
+          <Gossip />
         }
       </div>
 
