@@ -1,0 +1,42 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/dist/server.js",
+  "engines": {
+    "node": "14.x",
+    "npm": "6.14.7"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.1",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.0",
+    "mongoose": "^5.12.7",
+    "node-fetch": "^2.6.1",
+    "ts-node": "^9.1.1",    
+    "concurrently": "^6.0.2",
+    "yahoo-stock-prices": "^1.1.0",
+    "yahoo-stock-prices-fetch": "^1.4.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.11",
+    "@types/mongoose": "^5.10.5",
+    "@types/node": "^15.0.1",
+    "@types/node-fetch": "^2.5.10",
+    "concurrently": "^6.0.2",
+    "nodemon": "^2.0.7",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "startDev": "concurrently \"tsc -w\" \"nodemon dist/server.js\"",
+    "start": "node dist/server.js",
+    "postinstall": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
