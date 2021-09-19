@@ -124,7 +124,9 @@ function App() {
       </div> */}
 
       <div className='Header'>
-        <p>The website of the future</p>
+        {pageSelected !== 'gossip' &&
+          <p>The website of the future</p>
+        }
       </div>
       <div className='nav'>
         <input type='button' value='home' onClick={() => setPageSelected('home')} />
@@ -179,7 +181,7 @@ function App() {
             {/* https://github.com/matteobruni/tsparticles/blob/main/components/react/README.md 
             should use this for the background of the page
             */}
-            
+
             <p>Roadmap</p>
             <ul>
               <li>Team</li>
